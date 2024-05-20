@@ -43,7 +43,8 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./chart
+          publish_branch: gh-pages
+          publish_dir: .cr-index  # Directory where chart-releaser outputs the index.yaml file
 
       - name: Print URL
         run: |
