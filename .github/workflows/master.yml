@@ -49,10 +49,13 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }} 
     -
       name: push snapshot version
+      # docker push docker.io/obsidiandynamics/kafdrop:$app_ver
       run: |
         echo publishing docker container $app_ver
-        docker push docker.io/obsidiandynamics/kafdrop:$app_ver
+        docker push docker.io/florianbachmann/kafdrop:$app_ver
     -
       name: push latest if it's a release
       if: ${{ ! endsWith( env.app_ver, '-SNAPSHOT' ) }}
-      run: docker push docker.io/obsidiandynamics/kafdrop:latest
+      #run: docker push docker.io/obsidiandynamics/kafdrop:latest
+      run: docker push docker.io/florianbachmann/kafdrop:latest
+      
